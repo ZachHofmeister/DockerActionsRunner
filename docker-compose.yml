@@ -1,0 +1,17 @@
+version: "3.6"
+
+services:
+  github-runner:
+    image: zachhof/actions-runner:latest
+    restart: unless-stopped
+    container_name: github-runner
+    environment:
+      # check *your* docker group id with: `getent group docker`
+      - HOST_DOCKER_GID=$HOST_DOCKER_GID
+      # REPO like github_username/repo_name
+      - REPO=$REPO
+      # TOKEN should be a fine-grained Github token with admin write permissions for your repository
+      - TOKEN=$TOKEN
+
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
