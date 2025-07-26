@@ -10,6 +10,11 @@ Test the Docker image like:
 docker run -d --env-file .env --name runner zachhof/actions-runner:latest
 ```
 
+Push the Docker image like:
+```
+docker push zachhof/actions-runner:latest
+```
+
 Start using docker-compose like:
 ```
 docker-compose up -d
